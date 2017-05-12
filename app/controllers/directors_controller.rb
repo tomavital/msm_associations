@@ -7,8 +7,8 @@ class DirectorsController < ApplicationController
 
   def show
     @director = Director.find(params[:id])
-
-    render("directors/show.html.erb")
+    @movie = Movie.new
+    # render("directors/show.html.erb")
   end
 
   def new
