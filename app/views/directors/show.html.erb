@@ -16,7 +16,10 @@
 
       <dt>Image url</dt>
       <dd><%= @director.image_url %></dd>
-
+      <dt> Number of Films Directed </dt>
+      <dd><%= Movie.where(:director_id => @director.id).count %>
+    </div>
+ </dd>
     </dl>
 
     <div class="btn-group btn-group-justified">
