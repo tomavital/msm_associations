@@ -18,7 +18,15 @@
       <dd><%= @actor.image_url %></dd>
 
       <dt> Number of Characters Played </dt>
-      <dd><%= Character.where(:actor_id => @actor.id).count %>
+      <dd><%= Character.where(:actor_id => @actor.id).count %> </dd>
+        <dt>Movies played in</dt>
+      <ul>
+        <dd><% Character.where(:actor_id => @actor.id).each do |character| %>
+          <!-- <li><a href="/character/<%=character.id%>"><%= character.movie_id  %></a></li> -->
+          <li><a href="/movies/ <%=@character.movie_id%>">
+            <%= Movie.find_by(:id => character.movie_id).title %>
+          </a></li>
+          <% end  %></dd>
       </div>
     </dd>
 
@@ -39,13 +47,6 @@
   </div>
 </div>
 
-<ul>
-  <% Character.where(:actor_id => @actor.id).each do |character| %>
-    <!-- <li><a href="/character/<%=character.id%>"><%= character.movie_id  %></a></li> -->
-    <li><a href="/movies/ <%=@character.movie_id%>">
-      <%= Movie.find_by(:id => character.movie_id).title %>
-    </a></li>
-    <% end  %>
 
   </ul>
 
