@@ -17,6 +17,12 @@
       <dt>Image url</dt>
       <dd><%= @actor.image_url %></dd>
 
+      <dt> Number of Characters Played </dt>
+      <dd><%= Character.where(:actor_id => @actor.id).count %>
+      </div>
+    </dd>
+
+
     </dl>
 
     <div class="btn-group btn-group-justified">
@@ -32,6 +38,13 @@
     </div>
   </div>
 </div>
+
+<ul>
+  <% Character.where(:actor_id => @actor.id).each do |character| %>
+    <li><a href="/character/<%=character.id%>"><%= character.name  %></a></li>
+    <% end  %>
+
+  </ul>
 
 <div class="page-header">
   <h3>Add Character</h3>
