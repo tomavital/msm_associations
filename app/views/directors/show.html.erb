@@ -107,8 +107,14 @@
             <option value="<%= director.id  %>"><%= director.name %></option>
             <% end  %>
           </select> -->
-        <input type="hidden" name="director_id" value="<%= @director.id %>">
+          <div class="form-group">
+            <label for="image_url" class="control-label">
+              Director
+            </label>
+        <input type="text"  id="director" name="director_id"placeholder="Director" class="form-control" value="<%= @director.id %>">
         </div>
+
+
 
         <button class="btn btn-success">
           Create Movie
